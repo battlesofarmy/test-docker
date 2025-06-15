@@ -1,6 +1,5 @@
 // bits/stdc++.h
 // Custom version to support CP users
-#include <bits/ios_base.h>
 #include <algorithm>
 #include <bitset>
 #include <cassert>
