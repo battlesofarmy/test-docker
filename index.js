@@ -45,7 +45,8 @@ app.post('/run', (req, res) => {
   fs.writeFileSync('main.cpp', code);
 
   // Compile
-  exec('g++ main.cpp -o main', async (err, stdout, stderr) => {
+  // exec('g++ main.cpp -o main', async (err, stdout, stderr) => {
+    exec('g++ -I. main.cpp -o main', async(err, stdout, stderr) => {
     if (err) {
       return res.json({ error: stderr });
     }
