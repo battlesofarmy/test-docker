@@ -1,11 +1,11 @@
-// const express = require('express');
-// const cors = require('cors');
-// const fs = require('fs');
-// const { exec } = require('child_process');
+const express = require('express');
+const cors = require('cors');
+const fs = require('fs');
+const { exec } = require('child_process');
 
-// const app = express();
-// app.use(cors());
-// app.use(express.json());
+const app = express();
+app.use(cors());
+app.use(express.json());
 
 // app.post('/run', (req, res) => {
 //   const { code, input } = req.body;
@@ -31,15 +31,6 @@
 //     }
 //   });
 // });
-
-// app.get('/', (req, res)=>{
-//   res.send("Hello Docker!");
-// })
-
-// app.listen(5000, () => {
-//   console.log('Server running on port 5000');
-// });
-
 
 
 
@@ -117,4 +108,14 @@ app.post('/run', (req, res) => {
       results,
     });
   });
+});
+
+
+
+app.get('/', (req, res)=>{
+  res.send("Hello Docker!");
+})
+
+app.listen(5000, () => {
+  console.log('Server running on port 5000');
 });
