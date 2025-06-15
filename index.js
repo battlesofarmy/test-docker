@@ -51,7 +51,8 @@ app.post('/run', (req, res) => {
       return res.json({ error: stderr });
     }
 
-    const results = [];
+    try{
+      const results = [];
 
     for (let i = 0; i < testCases.length; i++) {
       const { input, output: expectedOutput } = testCases[i];
@@ -104,12 +105,17 @@ app.post('/run', (req, res) => {
 
       results.push(result);
     }
-    // consol.log("Hi");
 
     res.json({
       verdict: results.every(r => r.passed) ? "Accepted" : "Wrong Answer",
       results,
     });
+    }catch(err){
+      res.send(err);
+    }
+
+
+
   });
 });
 
