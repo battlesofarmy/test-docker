@@ -103,13 +103,12 @@ app.post('/run', (req, res) => {
 
       results.push(result);
     }
+    // consol.log("Hi");
 
     res.json({
       verdict: results.every(r => r.passed) ? "Accepted" : "Wrong Answer",
       results,
     });
-    // console.log(results)
-    // res.send("Accpeted")
   });
 });
 
