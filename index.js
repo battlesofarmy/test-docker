@@ -1,7 +1,8 @@
 const express = require('express');
 const cors = require('cors');
 const fs = require('fs');
-const { exec } = require('child_process');
+// const { exec } = require('child_process');
+const { exec, spawn } = require('child_process');
 
 const app = express();
 app.use(cors());
@@ -107,6 +108,8 @@ app.post('/run', (req, res) => {
       verdict: results.every(r => r.passed) ? "Accepted" : "Wrong Answer",
       results,
     });
+    // console.log(results)
+    // res.send("Accpeted")
   });
 });
 
@@ -116,6 +119,6 @@ app.get('/', (req, res)=>{
   res.send("Hello Docker!");
 })
 
-app.listen(5000, () => {
-  console.log('Server running on port 5000');
+app.listen(4000, () => {
+  console.log('Server running on port 4000');
 });
